@@ -12,7 +12,8 @@ spring:
       routes:
 
         - id: order-service
-          uri: http://localhost:8081
+          #uri: http://localhost:8081
+          uri: http://order-service:8081
           predicates:
             - Path=/api/orders/**
           filters:
@@ -42,7 +43,8 @@ spring:
                 fallbackUri: forward:/fallback/order
 
         - id: payment-service
-          uri: http://localhost:8082
+          #uri: http://localhost:8082
+          uri: http://payment-service:8082
           predicates:
             - Path=/api/payments/**
           filters:
@@ -52,7 +54,8 @@ spring:
                 fallbackUri: forward:/fallback/payment
 
         - id: inventory-service
-          uri: http://localhost:8083
+          uri: http://inventory-service:8083
+          #uri: http://localhost:8083
           predicates:
             - Path=/api/inventory/**
           filters:
@@ -62,7 +65,8 @@ spring:
                 fallbackUri: forward:/fallback/inventory
   data:
     redis:
-      host: localhost
+      #host: localhost
+      host: redis
       port: 6379
 
 resilience4j:
@@ -95,4 +99,5 @@ management:
 
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://zipkin:9411/api/v2/spans
+      #endpoint: http://localhost:9411/api/v2/spans

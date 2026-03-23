@@ -2,8 +2,8 @@ spring:
   application:
     name: order-service
   datasource:
-    url: jdbc:mysql://localhost:3306/orderdb_v2
-    #url: jdbc:mysql://mysql:3306/orderdb_v2
+    #url: jdbc:mysql://localhost:3306/orderdb_v2
+    url: jdbc:mysql://mysql:3306/orderdb_v2
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -30,8 +30,8 @@ spring:
             readTimeout: 3000
 
   kafka:
-    #bootstrap-servers: kafka:9092
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
+    #bootstrap-servers: localhost:9092
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
